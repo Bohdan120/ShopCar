@@ -1,21 +1,44 @@
 <header>
-    <mat-toolbar color="primary" class="header-toolbar">
-        <div class="left-icons">
-            <button mat-icon-button routerLink="/">
-                <mat-icon>home</mat-icon>
-            </button>  
-            <button mat-icon-button routerLink="/cars">
-                <mat-icon>directions_car</mat-icon>
-            </button>   
+  <mat-toolbar color="primary" class="header-toolbar">
+    <div class="left-icons">
+      <button mat-icon-button routerLink="/">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/cars">
+        <mat-icon>directions_car</mat-icon>
+      </button>
+    </div>
+    <span class="center-span">Car Shop</span>
+    <div class="right-icons">
+      <button mat-icon-button [matMenuTriggerFor]="cartMenu">
+        <mat-icon [matBadge]="basket.length" [matBadgeHidden]="!basket.length" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/mail">
+        <mat-icon>contact_mail</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+  <mat-menu #cartMenu="matMenu">
+    <div class="cart">
+      <div>
+        <span>{{ basket.length }} items</span>
+      </div>
+      <div *ngIf="basket.length">
+        <div *ngFor="let car of basket">
+          {{ car.make }} x {{ car.model }}
+          <span>{{ car.price }}</span>
         </div>
-        <span class="center-span">Car Shop</span> 
-        <div class="right-icons">
-            <button mat-icon-button routerLink="/cart">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button routerLink="/mail">
-                <mat-icon>contact_mail</mat-icon>
-            </button>
-        </div>
-    </mat-toolbar>
+      </div>
+      <div>
+        Total:
+        <span>{{ getTotalPrice() | currency }}</span>
+      </div>
+    </div>
+    <button mat-menu-item (click)="clearCart()">
+      <mat-icon>remove_shopping_cart</mat-icon>
+    </button>
+    <button mat-menu-item routerLink="cart">
+      <mat-icon>shopping_cart_checkout</mat-icon>
+    </button>
+  </mat-menu>
 </header>

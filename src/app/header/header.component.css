@@ -22,3 +22,8 @@ header {
 .center-span {
     margin: 0 auto; 
 }
+
+.cart{
+    color: white;
+    margin: 6px;
+}

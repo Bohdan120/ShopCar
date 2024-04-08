@@ -1,0 +1,45 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Make</mat-label>
+      <input matInput formControlName="make">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model">
+      </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Mileage</mat-label>
+      <input matInput formControlName="mileage">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Fuel Type</mat-label>
+      <input matInput formControlName="fuelType">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Transmission</mat-label>
+      <input matInput formControlName="transmission">  
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Engine</mat-label>
+        <input matInput formControlName="engine">  
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Horsepower</mat-label>
+        <input matInput formControlName="horsepower">  
+    </mat-form-field>  
+  
+    <button class="button" mat-flat-button style="margin-right: 10px" color="primary" type="submit">
+      {{isNew ? 'Add car' : 'Update'}}</button>
+    <button class="button" mat-flat-button color="primary" (click)="onNoClick()" type="button">Cancel</button>
+  
+  
+  </form>
+  

@@ -4,9 +4,12 @@
     min-height: 100vh;
 }
 
+
 main {
     flex-grow: 1;
     width: 85%;
     margin: 20px auto 10px;
     padding-top: 64px;
 }
+
+
